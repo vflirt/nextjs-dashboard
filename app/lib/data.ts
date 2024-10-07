@@ -91,6 +91,9 @@ export async function fetchFilteredInvoices(
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
+    console.log('Fetching filtered invoices data...');
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     const invoices = await sql<InvoicesTable>`
       SELECT
         invoices.id,
@@ -185,6 +188,9 @@ export async function fetchCustomers() {
 
 export async function fetchFilteredCustomers(query: string) {
   try {
+    console.log('Fetching filtered customers data...');
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     const data = await sql<CustomersTableType>`
 		SELECT
 		  customers.id,
