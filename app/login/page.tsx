@@ -1,5 +1,6 @@
 import AcmeLogo from '@/app/ui/acme-logo';
 import LoginForm from '@/app/ui/login-form';
+import { signIn } from "@/auth"
  
 export default function LoginPage() {
   return (
@@ -11,6 +12,16 @@ export default function LoginPage() {
           </div>
         </div>
         <LoginForm />
+        <form
+            action={async () => {
+              "use server"
+              await signIn("google")
+            }}
+          >
+          <button type="submit">
+            Signin with Google
+          </button>
+        </form>
       </div>
     </main>
   );
